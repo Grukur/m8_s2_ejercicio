@@ -19,6 +19,9 @@
     "pg",
     "pg-hstore"
   ],
+  "engine":{
+    "node": ">=18 < 19"
+  },
   "author": "Darold K Trench",
   "license": "ISC",
   "dependencies": {
