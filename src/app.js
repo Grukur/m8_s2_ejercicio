@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(upload());
 
 //Publicacion de carpeta
-app.use('/public', express.static(path.join(__dirname, '/../public')))
+app.use('/public', express.static(path.resolve(__dirname, '../public/')))
 
 
 //rutas
