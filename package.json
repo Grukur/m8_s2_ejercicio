@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "SET NODE_ENV=development && nodemon index.js",
     "start": "node index.js",
-    "prod":"SET NODE_ENV=production && node index.js"
+    "prod": "SET NODE_ENV=production && node index.js"
   },
   "keywords": [
     "express",
@@ -19,12 +19,13 @@
     "pg",
     "pg-hstore"
   ],
-  "engine":{
+  "engine": {
     "node": ">=18 < 19"
   },
   "author": "Darold K Trench",
   "license": "ISC",
   "dependencies": {
+    "cloudinary": "^1.37.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",

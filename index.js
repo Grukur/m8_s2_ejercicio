@@ -4,7 +4,6 @@ import sequelize from './src/database/database.js';
 //modelos
 import './src/models/Producto.models.js';
 
-
 let PORT = process.env.PORT || 3000;
 
 const main = async() => {

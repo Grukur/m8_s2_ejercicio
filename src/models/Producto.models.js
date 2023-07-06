@@ -22,6 +22,10 @@ const Producto = sequelize.define(
         rutaImagen: {
             type:DataTypes.STRING,
             allowNull:false
+        },
+        publicIdImagen: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
     },
     {

@@ -28,6 +28,7 @@ export const addProductos = async (req, res) => {
             precio: Number(precio),
             img: req.nombreImagen,
             rutaImagen:`/public/uploads/${req.nombreImagen}`,
+            publicIdImagen: 0
         });
 
         res.status(201).json({
