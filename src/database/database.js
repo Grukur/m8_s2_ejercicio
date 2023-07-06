@@ -1,25 +1,26 @@
-import Sequelize from "sequelize";
-import * as path from "path";
-import { fileURLToPath } from "url";
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-import pg from "pg";
-import { config } from "dotenv";
+import Sequelize from 'sequelize'
+import * as path from 'path'
+import { fileURLToPath } from 'url'
+import * as dotenv from 'dotenv'
+import pg from 'pg'
 
-let database, username, password, host;
-let dialectOptions = null;
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+let dialectOptions = null
 
-if (process.env.NODE_ENV.includes("production")) {
-    let rutaEnv = path.join(__dirname, "/../../.env.production");
-    config({ path: rutaEnv });
-    dialectOptions = {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false,
-        },
-    };
+if (process.env.NODE_ENV === 'development') {
+  dotenv.config({
+    path: path.join(__dirname, '../../.env')
+  })
 } else {
-    let rutaEnv = path.join(__dirname, "/../../.env");
-    config({ path: rutaEnv });
+  dotenv.config({
+    path: path.join(__dirname, `../../.env.${process.env.NODE_ENV}`)
+  })
+  dialectOptions = {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }
 }
 
 database = process.env.DB_DATABASE;
