@@ -8,6 +8,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 //inportacion de rutas
 import productosRoutes from './routes/productos.routes.js'
+import usuariosRoutes from './routes/usuarios.routes.js'
+import viewsRoutes from './routes/views.routes.js'
 
 const app = express();
 
@@ -24,5 +26,7 @@ app.use('/public', express.static(path.resolve(__dirname, '../public/')))
 
 //rutas
 app.use('/api/v1/productos', productosRoutes)
+app.use('/api/v1/usuarios', usuariosRoutes)
+app.use('/', viewsRoutes)
 
 export default app;

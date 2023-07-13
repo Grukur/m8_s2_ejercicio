@@ -1,4 +1,5 @@
 import Producto from "../models/Producto.models.js";
+import Usuario from "../models/Usuario.models.js";
 import fs from "fs";
 
 export const findAllProductos = async (req, res) => {
@@ -20,6 +21,15 @@ export const findAllProductos = async (req, res) => {
 };
 
 export const addProductos = async (req, res) => {
+    let usuarioToken = req.usuario;
+    let usuarioDB = await Usuario.findByPk(usuarioToken);
+    if(!usuarioDB.admin){
+        return res.status(403).json({
+            code:403,
+            message:`Usted no tiene los permisos necesarios para crear productos`
+        })
+    }
+
     let { nombre, descripcion, precio } = req.body;
     try {
         let productoCreado = await Producto.create({

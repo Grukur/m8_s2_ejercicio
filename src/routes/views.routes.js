@@ -4,16 +4,16 @@ import {findAllProductosCloud, addProductosCloud} from '../controllers/productos
 import upload from '../middlewares/upload.middleware.js'; //middleware base de dato
 import {uploadFiles} from '../middlewares/cloud.middleware.js'; //middleware cloud
 import  {verifyToken, validarAdmin}   from "../middlewares/auth.middleware.js";
+import Usuario from "../models/Usuario.models.js";
 
 const router = Router();
 
-// ruta findAll productos
-router.get("/", findAllProductos)
-router.get("/cloud", findAllProductosCloud)
-
-//ruta post productos
-router.post('/',verifyToken, validarAdmin, upload, addProductos)
-router.post('/cloud',verifyToken, validarAdmin, uploadFiles, addProductosCloud)
+router.get("/home", (req, res) => {
+    res.send('Vista Home')
+})
+router.get("/perfil", (req, res) => {
+    res.send(`<h1>Bienvenido Usuario: </h1>`)
+})
 
 
 export default router;

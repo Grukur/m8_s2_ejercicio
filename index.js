@@ -3,6 +3,7 @@ import sequelize from './src/database/database.js';
 
 //modelos
 import './src/models/Producto.models.js';
+import './src/models/Usuario.models.js';
 
 let PORT = process.env.PORT || 3000;
 
@@ -10,7 +11,7 @@ const main = async() => {
     try {
         await sequelize.authenticate();
         console.log("Conexion a la base de datos establecida");
-        await sequelize.sync({force:true, alter:true})
+        await sequelize.sync({force:false, alter:true})
 
 
         app.listen(PORT, ()=> console.log('Servidor escuchando en puerto: ' + PORT));
